@@ -847,8 +847,8 @@ class LoopdashStagingProtection {
             'password' => 'ShapeTomorrow',
             'login_message' => 'This is a staging environment. Please enter the access password to continue.',
             'error_message' => 'Incorrect password. Please try again.',
-            'css_source' => 'local',
-            'external_css_url' => '',
+            'css_source' => 'external',
+            'external_css_url' => 'https://cdn.jsdelivr.net/gh/loopdash/wp-password@main/assets/css/login-styles.css',
             'css_version' => LSP_VERSION,
             'protection_enabled' => false
         );
@@ -1234,7 +1234,7 @@ class LoopdashStagingProtection {
         $options = $this->get_options();
         echo '<input type="url" name="lsp_options[external_css_url]" value="' . esc_attr($options['external_css_url']) . '" class="large-text" placeholder="https://example.com/path/to/styles.css" />';
         echo '<p class="description">URL to external CSS file. <strong>No inline CSS fallback</strong> - ensure the URL is always accessible. Examples:<br>';
-        echo '<code>https://raw.githubusercontent.com/loopdash/wp-password/main/login-styles.css</code><br>';
+        echo '<code>https://cdn.jsdelivr.net/gh/loopdash/wp-password@main/assets/css/login-styles.css</code><br>';
         echo '<code>https://loopdash.com/assets/staging-protection/css/login-styles.css</code><br>';
         echo 'Only required when CSS Source is set to "External CSS URL".</p>';
         
@@ -1506,8 +1506,8 @@ function lsp_activate() {
         'password' => 'ShapeTomorrow',
         'login_message' => 'This is a staging environment. Please enter the access password to continue.',
         'error_message' => 'Incorrect password. Please try again.',
-        'css_source' => 'local',
-        'external_css_url' => '',
+        'css_source' => 'external',
+        'external_css_url' => 'https://cdn.jsdelivr.net/gh/loopdash/wp-password@main/assets/css/login-styles.css',
         'css_version' => LSP_VERSION,
         'protection_enabled' => false // Protection disabled by default
     );
