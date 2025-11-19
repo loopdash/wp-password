@@ -285,7 +285,9 @@ class LoopdashStagingProtection {
     private function get_auth_transient_key() {
         $ip = $this->get_client_ip();
         $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-        $unique_id = md5($ip . $user_agent . NONCE_SALT);
+        // Use AUTH_SALT if available, fallback to ABSPATH for early execution compatibility
+        $salt = defined('NONCE_SALT') ? NONCE_SALT : (defined('AUTH_SALT') ? AUTH_SALT : ABSPATH);
+        $unique_id = md5($ip . $user_agent . $salt);
         return $this->transient_key . substr($unique_id, 0, 12);
     }
     
